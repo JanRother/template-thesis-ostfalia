@@ -1,0 +1,67 @@
+% MAIN DOCUMENT
+
+% change meta text values in ./meta/parameters.tex
+% save chapters and corresponding data in ./chapters/XX/
+% save images in ./images/
+% remove ./example/ from project root and clear references in this file
+% add imports to ./meta/packages.tex, only if necessary
+
+% version from 2022-10
+
+
+
+\documentclass[a4paper, oneside, 11pt]{book}
+\usepackage[utf8]{inputenc}
+
+\newif\ifdraft
+\drafttrue												% flag: marks document as draft and shows to-do-notes, comment or set to "draftfalse"
+
+\input{./meta/packages}									% import packages
+\input{./meta/parameters}								% set meta parameters
+\input{./meta/commands}									% define custom commands and environments
+\input{./meta/header}									% set document header and page layout
+\input{./meta/hyphenation}								% define hyphenation rules
+
+\setcounter{chapter}{-1}								% reset chapter counter to start with 0
+
+\begin{document}
+
+	%-------------------------------------------------------------------------------
+	% COVER, TOC, AFFIDAVIT
+	%-------------------------------------------------------------------------------
+
+	\listoftodos
+	\input{./cover}
+	
+	\tableofcontents
+	\listoffigures
+	\listoftables
+	
+	\input{./affidavit}
+	
+	%-------------------------------------------------------------------------------
+	% CONTENT
+	%-------------------------------------------------------------------------------
+
+	\mainmatter
+	
+	\input{./chapters/00/Einleitung-und-Motivation}
+	\input{./chapters/01/Kapitel}
+	\input{./chapters/template/template}				% template for new chapters, remove from main
+	\input{./chapters/example/example}					% example chapter, remove from main
+	\input{./chapters/99/Schluss-und-Fazit}
+
+	\bibliographystyle{alphadin}
+	\bibliography{./literature}
+	
+	\clearpage
+
+	%---------------------------------------------------------------------------
+	% APPENDIX
+	%---------------------------------------------------------------------------
+
+	\appendix
+	\pagenumbering{Roman}
+	\input{./chapters/AA/Anhang}
+
+\end{document}

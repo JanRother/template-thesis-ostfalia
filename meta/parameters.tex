@@ -1,0 +1,46 @@
+% PARAMETERS FOR METADATA
+
+
+
+% general metadata concerning the scientific work
+\newcommand{\documentCategory}{Projekt\xspace}
+\newcommand{\course}{Modul\xspace}
+\newcommand{\courseAbbreviation}{AKRNM\xspace}
+\newcommand{\semester}{(W|S)S-JJJJ[/YYYY]\xspace}
+\newcommand{\project}{Projekttitel oder -kurzbeschreibung\xspace}
+
+% flag for single or group work
+% note: there is no integrity check for the students, 
+%       meaning that more than one student can be set to true although the work is set to single, or vice versa
+\newboolean{singleAuthor} \setbool{singleAuthor}{true}
+
+% flags for enabling the visibility of authors
+\newboolean{studentA} \setboolean{studentA}{true}
+\newboolean{studentB} \setboolean{studentB}{false}
+\newboolean{studentC} \setboolean{studentC}{false}
+\newboolean{studentD} \setboolean{studentD}{false}
+\newboolean{studentE} \setboolean{studentE}{false}
+\newboolean{studentF} \setboolean{studentF}{false}
+
+% metadata concerning the authors
+\newcommand{\studentAName}{Studierende oder Studierender\xspace}
+\newcommand{\studentAMatNr}{00000000\xspace}
+\newcommand{\studentBName}{Studierende oder Studierender\xspace}
+\newcommand{\studentBMatNr}{00000000\xspace}
+\newcommand{\studentCName}{Studierende oder Studierender\xspace}
+\newcommand{\studentCMatNr}{00000000\xspace}
+\newcommand{\studentDName}{Studierende oder Studierender\xspace}
+\newcommand{\studentDMatNr}{00000000\xspace}
+\newcommand{\studentEName}{Studierende oder Studierender\xspace}
+\newcommand{\studentEMatNr}{00000000\xspace}
+\newcommand{\studentFName}{Studierende oder Studierender\xspace}
+\newcommand{\studentFMatNr}{00000000\xspace}
+
+% metadata concerning the tutor
+\newcommand{\tutor}{Dozentin oder Dozent\space}
+
+% metadata concerning the university
+\newcommand{\faculty}{Informatik\xspace}
+
+% metadata concerning the document manager (default: first student)
+\newcommand{\firstAuthor}{\studentAName\xspace}
