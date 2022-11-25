@@ -17,4 +17,5 @@
 *.toc
 *blx.bib
 
-#*.pdf
+.pdf
+\PDF
