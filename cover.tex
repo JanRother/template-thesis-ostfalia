@@ -16,7 +16,7 @@
 	
 	\hspace{1cm}
 	\begin{minipage}{\dimexpr\textwidth-1.5cm\relax}
-		{\Large\textsf{Fakultät Informatik}}
+		{\Large\textsf{Fakultät \faculty}}
 	\end{minipage}
 	
 	\vfil
@@ -45,15 +45,24 @@
 	\end{minipage}	
 	
 	%----------------------------------------------------------------------------
+
 	\vfil
 	
 	\hspace{1cm}
 	\begin{minipage}{\dimexpr\textwidth-1.5cm\relax}
-		{\Large\textsf{\textbf{Autor\ifbool{singleAuthor}{}{en}:} \\\documentAuthor}}
+		{\Large\textsf{
+			\textbf{Autor
+			\ifbool{singleAuthor}{}{en}:} \\\documentAuthor
+			}}
 		
 		\vspace{0.5cm}		
 		
-		{\Large\textsf{\textbf{Betreuer:} \\\documentTutor}}
+		{\Large\textsf{
+			\textbf{Betreuer:} 
+			\ifbool{tutorA}{\\\tutorAName}{}
+			\ifbool{tutorB}{\\\tutorBName}{}
+		}}
+
 	\end{minipage}
 	
 	\vspace{2em}
