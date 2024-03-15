@@ -1,13 +1,19 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/ubuntu
+////////////////////////////////////////////////////////////
+//////////////// DEVCONTAINER: LaTeX Project ///////////////
+////////////////////////////////////////////////////////////
+
+// For format details, see https://aka.ms/devcontainer.json.
+// For config options, see the README at https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/ubuntu.
+
 {
 	"name": "Ubuntu",
 	"image": "qmcgaw/latexdevcontainer:latest-full",
-	"remoteUser": "root", // Do not change this
+	"remoteUser": "root",
 	"features": {},
 	"customizations": {
 		"vscode": {
 			"settings": {
+				// LaTeX Workshop settings
 				"latex-workshop.latex.clean.fileTypes": [
 					"*.aux",
 					"*.bbl",
@@ -32,36 +38,37 @@
 					"*.synctex.gz(busy)",
 					"*.nav",
 					"*.vrb",
-					"*.gz", // Added Manually
-					"*.bcf", // Added Manually
-					"*.nlo", // Added Manually
-					"*.run.xml" // Added Manually
+					"*.gz",
+					"*.bcf",
+					"*.nlo",
+					"*.run.xml"
 				],
-				// Edit the following property to change export directory
-				"latex-workshop.latex.outDir": "./PDF",
+				// export settings
+				"latex-workshop.latex.outDir": "./pdf",
 				"latex-workshop.latex.autoClean.run": "onBuilt",
 				"latex-workshop.latex.build.forceRecipeUsage": false,
 				"latex-workshop.synctex.afterBuild.enabled": true,
 				"latex-workshop.view.pdf.viewer": "tab",
 				"latex-workshop.latex.clean.subfolder.enabled": true,
 				"latex-workshop.latex.magic.args": [
-					"-output-directory=PDF", // to change the output directory
-					"%DOC%"
+					"-output-directory=pdf", 	// output directory
+					"%DOC%"						// main file
 				],
-				// Remove / comment the next 3 lines to remove dark view for pdf
-				"latex-workshop.view.pdf.color.dark.pageColorsBackground": "#171717", // For Dark Viewwer
-				"latex-workshop.view.pdf.color.dark.pageColorsForeground":"#FFFFFF", // For Dark Viewer
-				"latex-workshop.view.pdf.color.dark.backgroundColor":"#171717", // For Dark Viewer
+				// dark mode view for PDF
+				"latex-workshop.view.pdf.color.dark.pageColorsBackground": "#171717",
+				"latex-workshop.view.pdf.color.dark.pageColorsForeground": "#FFFFFF",
+				"latex-workshop.view.pdf.color.dark.backgroundColor": "#171717",
+				// pdf viewer settings
 				"editor.formatOnSave": true,
 				"latex-workshop.latex.pdfWatch.delay": 500,
 				"latex-workshop.latex.watch.delay": 500,
 				"latex-workshop.codespaces.portforwarding.openDelay": 20000,
+				// Grammarly settings
 				"grammarly.files.include": [
-					"**/*.tex"
-				],
-				// Remove the following to check .md files with Grammarly.
-				"grammarly.files.exclude": [
+					"**/*.tex",
 					"**/*.md"
+				],
+				"grammarly.files.exclude": [
 				],
 				"grammarly.selectors": [
 					{
@@ -71,10 +78,29 @@
 				]
 			},
 			"extensions": [
-				"James-Yu.latex-workshop",
-				// Remove the following line if you do not want Live-Collaboration Feature
+				// Dev Containers
+				"ms-vscode-remote.remote-containers",
+				// GitHub Codespaces
+				"github.codespaces",
+				// WSL
+				"ms-vscode-remote.remote-wsl",
+				// JetBrains IDE Keymap
+				"isudox.vscode-jetbrains-keybindings",
+				// LaTeX Workshop
+				"james-yu.latex-workshop",
+				// GitLens
+				"eamodio.gitlens",
+				// GitHub Copilot
+				"github.copilot",
+				// GitHub Copilot Chat
+				"github.copilot-chat",
+				// Live Share
 				"ms-vsliveshare.vsliveshare",
-				// Remove the following line if you do not want Grammarly
+				// LaTeX Utilities
+				"tecosaur.latex-utilities",
+				// Markdown All in One
+				"yzhang.markdown-all-in-one",
+				// Grammarly
 				"znck.grammarly"
 			]
 		}
