@@ -4,76 +4,100 @@
 
 \frontmatter
 \begin{titlepage}
+\thispagestyle{titlepage}
 
-	%---------------------------------------------------------------------------
+    %---------------------------------------------------------------------------
 
-	\thispagestyle{titlepage}
-	\newgeometry{top=2cm, bottom=3.5cm, left=1.5cm, right=1.5cm}
-	
-	\hfill
-	\includegraphics[scale=0.93]{./images/logos/logo_ostfalia.jpg}
-	\includegraphics[scale=1.20]{./images/logos/sublogo_wf.jpg}
-	
-	\hspace{1cm}
-	\begin{minipage}{\dimexpr\textwidth-1.5cm\relax}
-		{\Large\textsf{Fakultät \faculty}}
-	\end{minipage}
-	
-	\vfil
-	
-	%---------------------------------------------------------------------------
+    \newgeometry{top=2cm, bottom=3.5cm, left=1.5cm, right=1.5cm}
 
-	\hspace{1cm}
-	\begin{minipage}{\dimexpr\textwidth-1.5cm\relax}
-		\hrulefill
-		
-		\vspace{2em}
-		
-		{\Large\textbf{\textsf{\documentSubject}}}
-			
-		\vspace{2em}
-			
-		{\Huge\textbf{\textsf{\documentTitle}}}
-			
-		\vspace{2em}
-			
-		{\Large\textsf{\documentSubtitle}}
-		
-		\vspace{1em}
-		
-		\hrulefill
-	\end{minipage}	
-	
-	%----------------------------------------------------------------------------
+    \hfill
+    \includegraphics[scale=0.93]{./images/logos/logo_ostfalia.jpg}
+    \includegraphics[scale=1.20]{./images/logos/sublogo_wf.jpg}
 
-	\vfil
-	
-	\hspace{1cm}
-	\begin{minipage}{\dimexpr\textwidth-1.5cm\relax}
-		{\Large\textsf{
-			\textbf{Autor
-			\ifbool{singleAuthor}{}{en}:} \\\documentAuthor
-			}}
-		
-		\vspace{0.5cm}		
-		
-		{\Large\textsf{
-			\textbf{Betreuer:} 
-			\ifbool{tutorA}{\\\tutorAName}{}
-			\ifbool{tutorB}{\\\tutorBName}{}
-		}}
+    \hspace{1cm}
+    \begin{minipage}{\dimexpr\textwidth-1.5cm\relax}
+        {\Large\textsf{Fakultät \faculty}}
+    \end{minipage}
 
-	\end{minipage}
-	
-	\vspace{2em}
-	
-	%---------------------------------------------------------------------------
-	
-	\enlargethispage{10\baselineskip}
-	
-	\includegraphics[scale=1.20]{./images/logos/sublogo_sz-sud-wob.jpg}
-	
-	%---------------------------------------------------------------------------
+    \vfil
+
+    %---------------------------------------------------------------------------
+
+    \hspace{1cm}
+    \begin{minipage}{\dimexpr\textwidth-1.5cm\relax}
+        \hrulefill
+
+        \vspace{2em}
+
+        {\Large\textbf{\textsf{\documentSubject}}}
+
+        \vspace{2em}
+
+        {\Huge\textbf{\textsf{\documentTitle}}}
+
+        \vspace{2em}
+
+        {\Large\textsf{\documentSubtitle}}
+
+        \vspace{1em}
+
+        \hrulefill
+    \end{minipage}
+
+    %---------------------------------------------------------------------------
+
+    \vfil
+
+    \begingroup
+    \centering
+    \ifbool{thesis}{
+        \textsf{
+            Zur Erlangung des akademischen Grades\\
+            \textbf{\degree}\\
+            im Studiengang \studies\\
+            an der\\
+            \university\\
+        }
+    }{}
+    \endgroup
+
+    %----------------------------------------------------------------------------
+
+    \vfil
+
+    \hspace{1cm}
+    \begin{minipage}{\dimexpr\textwidth-1.5cm\relax}
+        {\Large\textsf{
+            \ifbool{thesis}{
+                vorgelegt von \\\textbf{\documentAuthor}
+            }{
+                \textbf{Autor\ifbool{singleAuthor}{}{en}:} \\\documentAuthor
+            }}}
+
+        \vspace{0.5cm}
+
+        {\Large\textsf{
+            \textbf{Betreuer:}
+            \ifbool{tutorA}{\\\tutorAName}{}
+            \ifbool{tutorB}{\\\tutorBName}{}
+        }}
+
+        \vspace{0.5cm}
+
+        {\Large\textsf{
+            \textbf{Abgabedatum:} \\\documentDate
+        }}
+    \end{minipage}
+
+    \vfil
+
+    %---------------------------------------------------------------------------
+
+    \enlargethispage{5\baselineskip}
+
+    \includegraphics[scale=1.20]{./images/logos/sublogo_sz-sud-wob.jpg}
+
+    %---------------------------------------------------------------------------
 
 \end{titlepage}
 
