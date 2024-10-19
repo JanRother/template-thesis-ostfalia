@@ -15,20 +15,25 @@
 \usepackage{titlesec}                                               % set title format
 \usepackage[titles]{tocloft}                                        % set table of contents format
 \usepackage{csquotes}                                               % set quotation marks
-\usepackage[square, numbers]{natbib}                                % set bibliography format
+\usepackage[
+	backend=biber,					% biber package for compilation
+	citestyle=numeric,				% citation style matching: IEEE
+	bibstyle=numeric,				% citation style matching: IEEE
+	sorting=none,					% sorting: as in document: IEEE
+	%title={Literaturverzeichnis}	% title of bibliography
+]{biblatex}															% set bibliography format
 \usepackage[pdftex, pdfborder={0 0 0}]{hyperref}                    % set hyperlinks
 \usepackage{lmodern}                                                % set font
 \usepackage{listings}                                               % set code listings
 \usepackage{color}                                                  % set colors
 \usepackage{xcolor}                                                 % set colors
 \usepackage{xspace}                                                 % set spaces
-\usepackage{listings}                                               % set code listings
 \usepackage{caption}                                                % set caption format
 
 \ifdraft
-	\usepackage{todonotes}                                          % set todo notes
+	\usepackage{todonotes}                                          % enable notes
 \else
-	\usepackage[disable]{todonotes}                                 % disable todo notes
+	\usepackage[disable]{todonotes}                                 % disable
 \fi
 
 %\usepackage{showframe} 	                                        % show layout borders

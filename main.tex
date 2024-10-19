@@ -24,6 +24,8 @@
 
 \setcounter{chapter}{-1}								% reset chapter counter to start with 0
 
+\addbibresource{literature.bib}							% import bibliography
+
 \begin{document}
 
 	%-------------------------------------------------------------------------------
@@ -51,8 +53,14 @@
 	\input{./chapters/example/example}					% example chapter, remove from main
 	\input{./chapters/99/Schluss-und-Fazit}
 
-	\bibliographystyle{IEEEtran}
-	\bibliography{./literature.bib}
+	%---------------------------------------------------------------------------
+	% BIBLIOGRAPHY
+	%---------------------------------------------------------------------------
+
+	\clearpage
+	\renewcommand{\bibname}{Literaturverzeichnis}		% set bibliography title, default: Literatur
+	\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+	\printbibliography
 	
 	\clearpage
 
