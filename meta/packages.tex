@@ -2,6 +2,7 @@
 
 
 
+% general packages
 \usepackage[top=2.5cm, bottom=2cm, left=3cm, right=2cm]{geometry}   % set page margins
 \usepackage[ngerman]{babel}                                         % set language
 \usepackage[T1]{fontenc}                                            % set font encoding
@@ -33,6 +34,21 @@
 
 
 
+% TColorbox packages
+% -> documentation: https://texdoc.org/serve/tcolorbox/0
+\usepackage{shellesc}												% required for shell escape
+\usepackage{tcolorbox}												% required for creating colored boxes
+\usepackage{fontawesome}											% required for using icons
+\usepackage{minted}													% required for code listing and syntax highlighting
+																	% -> requires shell escape !
+\tcbuselibrary{skins}												% required for creating custom skins
+\tcbuselibrary{most}												% required for using most features
+\tcbuselibrary{minted}												% required for using minted
+\tcbuselibrary{breakable} 										 	% required for breaking boxes
+
+
+
+% additional packages for development
 \usepackage{comment}												% enable comments in source code
 \ifdraft
 	\usepackage{todonotes}                                          % enable notes

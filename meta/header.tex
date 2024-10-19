@@ -79,6 +79,23 @@
 	xleftmargin=6pt,
 }
 
+% set code boxes
+\newtcblisting{codebox}[3][]{%
+	listing engine=minted,
+	minted style=colorful,
+	minted language=#2,
+	minted options={tabsize=2,breaklines,autogobble,linenos,numbersep=3mm},
+	colback=white,
+	colframe=darkgray,
+	listing only,
+	left=5mm,
+	title=\faCode\quad #3,
+	enhanced,
+	overlay={\begin{tcbclipinterior}\fill[lightgray] (frame.south west)
+	rectangle ([xshift=5mm]frame.north west);\end{tcbclipinterior}},
+	#1
+}
+
 % style captions
 \newlength\myx
 \setlength\myx{\textwidth}
