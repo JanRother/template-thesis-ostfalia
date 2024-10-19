@@ -7,6 +7,7 @@
 # |---------------------- Build Tools ---------------------|
 # LaTeX Build Files
 auxil/
+_minted*/
 *.aux
 *.bbl
 *.blg
@@ -15,9 +16,11 @@ auxil/
 *.fdb_latexmk
 *.fls
 *.gz
+*.listing
 *.lof
 *.lot
 *.lol
+*.minted
 *.out
 *.run.xml
 *.synctex.gz

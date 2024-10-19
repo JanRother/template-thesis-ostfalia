@@ -6,10 +6,12 @@
 *.fdb_latexmk
 *.fls
 *.gz
+*.listing
 *.lof
 *.log
 *.lot
 *.lol
+*.minted
 *.out
 *.run.xml
 *.synctex.gz
