@@ -6,6 +6,7 @@
 
 # |---------------------- Build Tools ---------------------|
 # LaTeX Build Files
+auxil/
 *.aux
 *.bbl
 *.blg
@@ -15,7 +16,6 @@
 *.fls
 *.gz
 *.lof
-*.log
 *.lot
 *.lol
 *.out
@@ -36,8 +36,8 @@ out/
 
 
 # |-------------------- Compiled Files --------------------|
-/pdf
-/PDF
+pdf/
+PDF/
 *.pdf
 *.PDF
 
@@ -55,10 +55,12 @@ out/
 *.iml
 *.ipr
 *.iws
+
 # Eclipse
 .classpath
 .project
 .settings/
+
 # VS Code
 .vscode/
 
@@ -77,6 +79,7 @@ out/
 # |------------------- Operating System -------------------|
 # Linux
 *~
+
 # Windows
 Thumbs.db
 ehthumbs.db
