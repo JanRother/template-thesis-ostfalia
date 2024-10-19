@@ -11,24 +11,20 @@
 
 \makeatletter
 
+% configure headers
 \patchcmd{\@makechapterhead}{\vspace*{50\p@}}{}{}{} 	% removes space above \chapter head
 \patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{}{}{} 	% removes space above \chapter* head
-
 \makeatother
-
 \setlength{\headheight}{14.5pt}							% set header height
-
 \pagestyle{fancy}										% set page style to fancy
-
 \renewcommand{\chaptermark}[1]{							% set chapter mark
 	\markboth{
 		{\chaptername\ \thechapter\ #1}
 	}{}
 }
-
 \renewcommand{\sectionmark}[1]{							% set section mark
 	\markright{
-		{\thesection\ #1}
+		{\projectshortdescription}
 	}
 }
 
