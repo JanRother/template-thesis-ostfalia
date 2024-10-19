@@ -29,11 +29,15 @@
 \begin{document}
 
 	%-------------------------------------------------------------------------------
-	% COVER, TOC, AFFIDAVIT
+	% FRONT MATTER
 	%-------------------------------------------------------------------------------
 
 	\listoftodos
 	\input{main/cover}
+
+	\ifbool{thesis}{
+		\input{main/abstract}
+	}{}
 	
 	\tableofcontents
 	\listoffigures
