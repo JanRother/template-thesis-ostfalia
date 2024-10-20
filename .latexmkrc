@@ -60,12 +60,31 @@ add_cus_dep('acn', 'acr', 0, 'makeacronyms');
 # |--------------------- Custom Rules ---------------------|
 # Glossaries
 sub makeglossary {
-    system("makeindex -s $_[0].ist
-                      -o $_[0].gls
-                      $_[0].glo");
+    my $file = $_[0];
+    my $glo_file = "$file.glo";
+    my $gls_file = "$file.gls";
+    my $ist_file = "$file.ist";
+
+    my $command = "makeindex -s '$ist_file' -o '$gls_file' '$glo_file'";
+    print "RUNNING: $command\n";
+    my $status = system($command);
+
+    if ($status != 0) {
+        die "ERROR: makeindex for glossary failed with status $status: $!\n       debug .latexmkrc file";
+    }
 }
+
 sub makeacronyms {
-    system("makeindex -s $_[0].ist
-                      -o $_[0].acr
-                      $_[0].acn");
+    my $file = $_[0];
+    my $acn_file = "$file.acn";
+    my $acr_file = "$file.acr";
+    my $ist_file = "$file.ist";
+
+    my $command = "makeindex -s '$ist_file' -o '$acr_file' '$acn_file'";
+    print "RUNNING: $command\n";
+    my $status = system($command);
+
+    if ($status != 0) {
+        die "ERROR: makeindex for acronyms failed with status $status: $!\n      debug .latexmkrc file";
+    }
 }
