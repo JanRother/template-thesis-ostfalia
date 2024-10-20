@@ -1,9 +1,19 @@
-\chapter{Kapitel}
+\chapter{Beispielkapitel}
 
-\section{Beispiel 0}
+\begin{comment}
+Dies ist ein mehrzeiliger Kommentar.
+Er wird nicht im Dokument angezeigt.
+\end{comment}
+
+\section{Eine Beispielsektion}
 
 \subsection{Unterpunkt}
+
 \enquote{Das ist ein Beispielzitat.} \footnote{Fußnote}
+
+Das Dokument ist in \Gls{latex} geschrieben.
+Texte können mit einer \gls{ide} bearbeitet werden.
+Eine \gls{abk} ist möglich und kann als \gls{abk} mehrfach verwendet werden.
 
 Das ist ein Beispieltext. Das ist ein Beispieltext. Das ist ein Beispieltext. Das ist ein Beispieltext. Das ist ein Beispieltext. Das ist ein Beispieltext. Das ist ein Beispieltext. Das ist ein Beispieltext. Das ist ein Beispieltext. Das ist ein Beispieltext. Das ist ein Beispieltext. Das ist ein Beispieltext. Das ist ein Beispieltext. Das ist ein Beispieltext. Das ist ein Beispieltext.
 
@@ -27,20 +37,17 @@ Das ist ein Fazit aus einer weiteren Referenz. \cite{001:Reference}
 
 \begin{table}
 	\centering
-	\begin{tabular}{| l c r |}
+	\begin{tabulary}{\textwidth}{|L|L|L|}
 		\hline
-		1 & 2 & 3 \\
-		4 & 5 & 6 \\
-		7 & 8 & 9 \\
-		\hline
-	\end{tabular}
+		Spalte 1 & Spalte 2 & Spalte 3 \\\hline
+	\end{tabulary}
 	\caption{Tabelle}
 \end{table}
 
-\section{Beispiel 1}
+\section{Eine weitere Beispielsektion}
 
 \subsection{Unterpunkt}
-Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. 
+Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text. Hier ist Platz für Text.
 
 \subsection{Fazit}
 Das ist ein Fazit. Das ist ein Fazit. Das ist ein Fazit. Das ist ein Fazit. Das ist ein Fazit. Das ist ein Fazit. Das ist ein Fazit. Das ist ein Fazit. Das ist ein Fazit. Das ist ein Fazit. Das ist ein Fazit. Das ist ein Fazit. Das ist ein Fazit. Das ist ein Fazit. Das ist ein Fazit.
@@ -49,12 +56,10 @@ Das ist ein Fazit. Das ist ein Fazit. Das ist ein Fazit. Das ist ein Fazit. Das 
 
 Hier ist weiterer Text, entnommen aus einer Referenz. \cite{000:Reference}
 
-\lstinputlisting[caption={Code-Beispiel},float,language=Html]{chapters/example/example.html}
-
-Hier ist weiterer Text ohne Referenz.
-
-\lstinputlisting[caption={Some Code},float,language=Java]{chapters/example/Example.java}
-
-Hier ist weiterer Text.
+\begin{comment}
+\begin{codebox}{python}{Code}
+	print('Hello World')
+\end{codebox}
+\end{comment}
 
 Hier ist weiterer Text.
