@@ -26,6 +26,9 @@
 
 \addbibresource{literature.bib}							% import bibliography
 
+\makeglossaries											% create glossary
+\loadglsentries{./main/glossaries.tex}					% load glossary entries
+
 \begin{document}
 
 	%-------------------------------------------------------------------------------
@@ -36,16 +39,19 @@
 	\input{main/cover}
 
 	\ifbool{thesis}{
-		\input{main/preface}
-		\input{main/abstract}
+		\input{./main/preface}
+		\input{./main/abstract}
 	}{}
-	
+
+	\input{./main/affidavit}
+
 	\tableofcontents
 	\listoffigures
 	\listoftables
-	
-	\input{main/affidavit}
-	
+
+	\printglossary[type=\acronymtype, title=Abkürzungsverzeichnis, style=listdotted]
+	\printglossary[type=\glsdefaulttype, title=Glossar] % style: see meta/header.tex
+
 	%-------------------------------------------------------------------------------
 	% CONTENT
 	%-------------------------------------------------------------------------------
