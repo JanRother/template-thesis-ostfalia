@@ -13,24 +13,25 @@
 ## Table of Contents
 
 <!-- TOC -->
-- [Ostfalia Computer Science Archive | Template Thesis](#ostfalia-computer-science-archive--template-thesis)
-  - [Table of Contents](#table-of-contents)
-  - [Introduction](#introduction)
-    - [Overview](#overview)
-    - [Demarcation](#demarcation)
-    - [Important Notes](#important-notes)
-  - [Usage](#usage)
-    - [Toolchain](#toolchain)
-    - [Setup](#setup)
-    - [Editing the Document](#editing-the-document)
-      - [Structure](#structure)
-      - [Files for the Thesis](#files-for-the-thesis)
-      - [Files for the Toolchain](#files-for-the-toolchain)
-    - [Configuring the Document](#configuring-the-document)
-    - [Writing](#writing)
-    - [Compiling](#compiling)
-    - [Miscellaneous](#miscellaneous)
-  - [Note](#note)
+* [Ostfalia Computer Science Archive | Template Thesis](#ostfalia-computer-science-archive--template-thesis)
+  * [Table of Contents](#table-of-contents)
+  * [Introduction](#introduction)
+    * [Overview](#overview)
+    * [Demarcation](#demarcation)
+    * [Important Notes](#important-notes)
+  * [Usage](#usage)
+    * [Toolchain](#toolchain)
+    * [Setup](#setup)
+    * [Editing the Document](#editing-the-document)
+      * [Structure](#structure)
+      * [Files for the Thesis](#files-for-the-thesis)
+      * [Files for the Toolchain](#files-for-the-toolchain)
+    * [Configuring the Document](#configuring-the-document)
+    * [Writing](#writing)
+    * [Compiling](#compiling)
+    * [Cleaning Up](#cleaning-up)
+    * [Miscellaneous](#miscellaneous)
+  * [Note](#note)
 <!-- TOC -->
 
 -----
@@ -61,21 +62,24 @@ The following tools form one possible way to compile the LaTeX document and are 
 
 - **LaTeX Distribution**: [MiKTeX](https://miktex.org/)
 - **Perl Distribution**: [Strawberry Perl](http://strawberryperl.com/) or `winget install -e --id StrawberryPerl.StrawberryPerl`
+- **Python Distribution**: [Python](https://www.python.org/)
 - **Editor**: [Microsoft Visual Studio Code](https://code.visualstudio.com/)
   - **LaTeX Language Support**: [LaTeX](https://marketplace.visualstudio.com/items?itemName=mathematic.vscode-latex)
   - **LaTeX Workshop**: [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
   - **LaTeX Utilities**: [LaTeX Utilities](https://marketplace.visualstudio.com/items?itemName=tecosaur.latex-utilities)
-- **Literature Management**: [BibTeX](http://www.bibtex.org/)
+- **Literature Management**: [BibLaTeX](https://www.ctan.org/pkg/biblatex) or [BibTeX](http://www.bibtex.org/)
 
 ### Setup
 
-1. Install the *LaTeX* distribution *MiKTeX* from [miktex.org](https://miktex.org/).
+1. Install the *LaTeX* distribution *MiKTeX* from [miktex.org](https://miktex.org/) or via `winget install --id=MiKTeX.MiKTeX  -e`.
 2. Install the *Perl* distribution *Strawberry Perl* from [strawberryperl.com](http://strawberryperl.com/) or via `winget install -e --id StrawberryPerl.StrawberryPerl`.
-3. Install your preferred *LaTeX* editor with the recommended extensions for *LaTeX* support.
-4. Install a literature management tool, such as or exactly *BibTeX*.
-5. Ensure to have a *GIT* client installed on your system.
-6. Clone the repository to your local machine using `git clone`.
-7. Open the repository as a project in your preferred *LaTeX* editor.
+3. Install the *Python* distribution from [python.org](https://www.python.org/) or via `winget install -e --id Python.Python.3.10`.
+4. When planning to use packages like `minted` for code highlighting, install `pygments` and `latexminted` via `pip install pygments latexminted`.
+5. Install your preferred *LaTeX* editor with the recommended extensions for *LaTeX* support.
+6. Install a literature management tool, such as or exactly *BibLaTeX* or *BibTeX*.
+7. Ensure to have a *GIT* client installed on your system.
+8. Clone the repository to your local machine using `git clone`.
+9. Open the repository as a project in your preferred *LaTeX* editor, for example *Microsoft Visual Studio Code*.
 
 > **Note**:  
 > The above steps are a guideline for setting up the *LaTeX* environment on *Microsoft Windows*.  
@@ -86,36 +90,41 @@ The following tools form one possible way to compile the LaTeX document and are 
 #### Structure
 
 ```text
+TEMPLATE-THESIS-OSTFALIA
 .
+│   .gitattributes
 │   .gitignore
-│   affidavit.tex
-│   cover.tex
+│   .latexmkrc
+│   cleanup-files
+│   cleanup.bat
+│   cleanup.sh
 │   LICENSE
 │   literature.bib
+│   main.pdf
 │   main.tex
 │   README.md
-│   _delete.bat
-│   _delete.sh
+│   README.pdf
 │
 ├───.devcontainer
 │       devcontainer.json
 │
+├───.idea
+│       ...
+│
 ├───chapters
 │   ├───00
-│   │       Einleitung-und-Motivation.tex
+│   │       introduction-and-motivation.tex
 │   │
 │   ├───01
-│   │       Kapitel.tex
+│   │       chapter.tex
 │   │
 │   ├───99
-│   │       Schluss-und-Fazit.tex
+│   │       ending-and-conclusion.tex
 │   │
 │   ├───AA
-│   │       Anhang.tex
+│   │       attachment.tex
 │   │
 │   ├───example
-│   │       example.html
-│   │       Example.java
 │   │       example.tex
 │   │
 │   └───template
@@ -127,12 +136,23 @@ The following tools form one possible way to compile the LaTeX document and are 
 │           sublogo_sz-sud-wob.jpg
 │           sublogo_wf.jpg
 │
-└───meta
-        commands.tex
-        header.tex
-        hyphenation.tex
-        packages.tex
-        parameters.tex
+├───main
+│       abstract.tex
+│       affidavit.tex
+│       cover.tex
+│       glossaries.tex
+│       preface.tex
+│
+├───meta
+│       commands.tex
+│       header.tex
+│       hyphenation.tex
+│       packages.tex
+│       parameters.tex
+│
+└───out
+        main.pdf
+        ...
 ```
 
 #### Files for the Thesis
@@ -141,13 +161,18 @@ The document is structured into several files and directories, that fulfill diff
 
 - The **main file** is `main.tex`. It includes all other files and sets the general structure of the document.
 - The **chapters** are located in the directory `./chapters`. Each chapter is a separate file and is included in the main file. It is recommended to copy the `./chapters/template/` directory to a new directory to create a new chapter. Note, that new chapters have to be included in the main file, otherwise they will not be compiled. The `./chapters/example/` directory provides an example chapter with a simple structure and some content. For chapters dedicated to the appendix, the `./chapters/AA/` directory is provided as template and can, if needed, be copied and expended to new chapters `./chapters/BB/`, `./chapters/CC/`, and so on.
-- The **meta data** such like packages, commands, parameters and hyphenation are located in the directory `./meta`. The files are included in the main file and provide the general settings and definitions for the document.
+- The **meta data** such like document styles are located in the directory `./meta`. The files are included in the main file and provide the general settings and definitions for the document.
   - `commands.tex` provides custom commands and environments.
   - `header.tex` provides settings for the document layout and appearance.
   - `hyphenation.tex` provides custom hyphenation rules.
   - `packages.tex` list all required packages and their settings.
   - `parameters.tex` provides the general parameters and configuration for the document.
-- The **cover** and **affidavit** are located in the root directory in the files `cover.tex` and `affidavit.tex`.
+- Content that is not part of the chapters but is relevant for the document, is located in the directory `./main`. Those files contain text for pages outside the main matter.
+  - `abstract.tex` contains the abstract of the work in German and English. (only visible in `thesis`-mode, see [Configuring the Document](#configuring-the-document))
+  - `affidavit.tex` contains the affidavit that the work was created independently including placeholders for signatures.
+  - `cover.tex` contains the cover page of the document.
+  - `glossaries.tex` contains the glossaries and acronyms used in the document and controlled by the `glossaries` package.
+  - `preface.tex` contains the preface of the document. (only visible in `thesis`-mode, see [Configuring the Document](#configuring-the-document))
 - **Literature** can be added to the file `literature.bib`, by using the *BibTeX* format. Data having the *BibTeX* format can be obtained from various sources and most of the literature databases provide the possibility to export the data in the *BibTeX* format.
 - **Images** used in the document should be placed in the `./images/` directory. The directory `./images/logos/` is intended to store logos and other images used in the cover and the affidavit.
 
@@ -157,19 +182,24 @@ The following files are provided to support the toolchain and the usage of the d
 
 - In the **`README.md`** file, all necessary information about the document and the template is provided.
 - The **`.gitignore`** file is used to exclude files and directories from the version control system *GIT*.
+- The **`.gitattributes`** file is used to define attributes like line endings or *GIT LFS* settings for the repository.
 - The **`LICENSE`** file provides the license of the document and the template.
-- To remove files associated to or created by the compilation, the **`_delete.bat`** (for *Microsoft Windows*) and **`_delete.sh`** (for *Unix* based systems) files are provided.
+- To remove files associated to or created by the compilation, the **`cleanup.bat`** (for *Microsoft Windows*) and **`cleanup.sh`** (for *Unix* based systems) files are provided. Their usage is explained under [Cleaning Up](#cleaning-up).
 - The **`.devcontainer`** directory contains the configuration for the development container, which is used to provide a consistent development environment for the document.
 
 ### Configuring the Document
 
 The document can be configured by adjusting the settings in the files located in the `./meta/` directory. Every file is dedicated to a specific purpose and provides the possibility to adjust the settings and definitions for the document. Content and context related settings such as title and author can be adjusted in the `parameters.tex` file. Settings regarding the layout and formatting of the document can be adjusted in the `header.tex` and the `commands.tex` files.
 
+> **Note**:  
+> Some of the documents content is only enabled in `thesis`-mode.  
+> This mode can be enabled by setting the `thesis`-flag in the `parameters.tex` file to `true`.
+
 Every document has comments and explanations in the files to help the user to understand the purpose and the usage of the settings and definitions.
 
 ### Writing
 
-The thesis can be build by extending the directory structure explained under [Structure](#structure) and by adding content to the files. For the most basic layout functions, have a look at the `./chapters/example/` directory. The `example.tex` file provides a simple example including use cases like sub- and subsubsections, lists, tables, figures, references, citations and more.
+The thesis can be built by extending the directory structure explained under [Structure](#structure) and by adding content to the files. For the most basic layout functions, have a look at the `./chapters/example/` directory. The `example.tex` file provides a simple example including use cases like sub- and subsubsections, lists, tables, figures, references, citations and more.
 
 ### Compiling
 
@@ -178,23 +208,46 @@ The document can be compiled using the *LaTeX* distribution *MiKTeX* and the *Pe
 To start the compilation execute
 
 ```shell
-latexmk -pdf .\main.tex
+latexmk
 ```
 
-or use the integrated compilation feature of your preferred *LaTeX* editor.
+This compiles the document as configured in the `./.latexmkrc` file. This file is used to define the compilation process and the output directory. By default, the output directory is set to `./out/`. Other settings configured in this file are
 
-The compiled document can be found under `./main.pdf`.
-To remove files associated to or created by the compilation, execute
+- the default file to compile,
+- the used *LaTeX* compiler,
+- the number of maximum runs per call,
+- the behavior of the configuration used during [Cleaning Up](#cleaning-up), and
+- custom dependencies required for `glossaries` package.
+
+As an alternative, use the integrated compilation feature of your preferred *LaTeX* editor or IDE.
+
+The compiled document can be found under `./main.pdf` respectively `./out/main.pdf`, depending on the configuration.
+
+### Cleaning Up
+
+To remove files associated to or created by the compilation, use the provided batch or shell script.
+
+- `.\cleanup.bat` for *Microsoft Windows*
+- `./cleanup.sh` for *Unix* based systems
+
+By default, the script assumes the project root directory as output folder and removes any files listed in `./cleanup-files`. Furthermore, it moves the artifacts matching `*.pdf` pattern to the project root directory. This behavior can be adjusted by applying the following options:
+
+- `cleanup.* --no-move` prevents the artifacts from being moved
+- `cleanup.* [DIRECTORY]` specifies the output directory to be cleaned up (relative to the project root directory)
+
+As an alternative, `latexmk` can be used to clean up the project directory by executing
 
 ```shell
-.\_delete.bat
+latexmk -c
 ```
 
-or
+to remove build files or
 
 ```shell
-./_delete.sh
+latexmk -C
 ```
+
+to remove all files created by the compilation process, including the output PDF file.
 
 ### Miscellaneous
 
