@@ -1,108 +1,17 @@
 ////////////////////////////////////////////////////////////
-//////////////// DEVCONTAINER: LaTeX Project ///////////////
+//////// DevContainer for LaTeX with Python Support ////////
 ////////////////////////////////////////////////////////////
 
-// For format details, see https://aka.ms/devcontainer.json.
-// For config options, see the README at https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/ubuntu.
+////////// AUTHOR:  Jan Rother
+////////// DATE:    2024-09
+////////// VERSION: 1.0
 
 {
-	"name": "Ubuntu",
-	"image": "qmcgaw/latexdevcontainer:latest-full",
-	"remoteUser": "root",
-	"features": {},
-	"customizations": {
-		"vscode": {
-			"settings": {
-				// LaTeX Workshop settings
-				"latex-workshop.latex.clean.fileTypes": [
-					"*.aux",
-					"*.bbl",
-					"*.blg",
-					"*.idx",
-					"*.ind",
-					"*.lof",
-					"*.lot",
-					"*.out",
-					"*.toc",
-					"*.acn",
-					"*.acr",
-					"*.alg",
-					"*.glg",
-					"*.glo",
-					"*.gls",
-					"*.fls",
-					"*.log",
-					"*.fdb_latexmk",
-					"*.snm",
-					"*.synctex(busy)",
-					"*.synctex.gz(busy)",
-					"*.nav",
-					"*.vrb",
-					"*.gz",
-					"*.bcf",
-					"*.nlo",
-					"*.run.xml"
-				],
-				// export settings
-				"latex-workshop.latex.outDir": "./pdf",
-				"latex-workshop.latex.autoClean.run": "onBuilt",
-				"latex-workshop.latex.build.forceRecipeUsage": false,
-				"latex-workshop.synctex.afterBuild.enabled": true,
-				"latex-workshop.view.pdf.viewer": "tab",
-				"latex-workshop.latex.clean.subfolder.enabled": true,
-				"latex-workshop.latex.magic.args": [
-					"-output-directory=pdf", 	// output directory
-					"%DOC%"						// main file
-				],
-				// dark mode view for PDF
-				"latex-workshop.view.pdf.color.dark.pageColorsBackground": "#171717",
-				"latex-workshop.view.pdf.color.dark.pageColorsForeground": "#FFFFFF",
-				"latex-workshop.view.pdf.color.dark.backgroundColor": "#171717",
-				// pdf viewer settings
-				"editor.formatOnSave": true,
-				"latex-workshop.latex.pdfWatch.delay": 500,
-				"latex-workshop.latex.watch.delay": 500,
-				"latex-workshop.codespaces.portforwarding.openDelay": 20000,
-				// Grammarly settings
-				"grammarly.files.include": [
-					"**/*.tex",
-					"**/*.md"
-				],
-				"grammarly.files.exclude": [
-				],
-				"grammarly.selectors": [
-					{
-						"language": "latex",
-						"scheme": "file"
-					}
-				]
-			},
-			"extensions": [
-				// Dev Containers
-				"ms-vscode-remote.remote-containers",
-				// GitHub Codespaces
-				"github.codespaces",
-				// WSL
-				"ms-vscode-remote.remote-wsl",
-				// JetBrains IDE Keymap
-				"isudox.vscode-jetbrains-keybindings",
-				// LaTeX Workshop
-				"james-yu.latex-workshop",
-				// GitLens
-				"eamodio.gitlens",
-				// GitHub Copilot
-				"github.copilot",
-				// GitHub Copilot Chat
-				"github.copilot-chat",
-				// Live Share
-				"ms-vsliveshare.vsliveshare",
-				// LaTeX Utilities
-				"tecosaur.latex-utilities",
-				// Markdown All in One
-				"yzhang.markdown-all-in-one",
-				// Grammarly
-				"znck.grammarly"
-			]
-		}
-	}
+  "name": "LaTeX",
+  "dockerFile": "Dockerfile",
+  "remoteUser": "root",
+  "features": {},
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  }
 }
