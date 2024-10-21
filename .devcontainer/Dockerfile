@@ -26,13 +26,15 @@ LABEL org.opencontainers.image.author="${AUTHOR}" \
 # |----------------------- Packages -----------------------|
 RUN apt-get update &&  \
     apt-get upgrade -y && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get clean
 
 RUN tlmgr update --self --all
 
 # |--------------------- Customization --------------------|
 # none
+RUN apt-get install -y zsh && \
+    chsh -s $(which zsh) && \
+    apt-get clean
 
 # |----------------------- Finalize -----------------------|
 WORKDIR /workspace

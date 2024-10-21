@@ -11,7 +11,21 @@
   "dockerFile": "Dockerfile",
   "remoteUser": "root",
   "features": {},
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/bash"
+  "postCreateCommand": {},
+  "postStartCommand": "echo 'Welcome to the LaTeX DevContainer!'",
+  "updateContentCommand": "tlmgr update --self --all",
+  "customizations": {
+    // --- Microsoft Visual Studio Code ---
+    "vscode": {
+      "settings": {
+        // General Settings
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "terminal.integrated.profiles.linux": {
+          "zsh": {
+            "path": "/bin/zsh"
+          }
+        }
+      }
+    }
   }
 }
