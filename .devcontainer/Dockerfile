@@ -31,7 +31,6 @@ RUN apt-get update &&  \
 RUN tlmgr update --self --all
 
 # |--------------------- Customization --------------------|
-# none
 RUN apt-get install -y zsh && \
     chsh -s $(which zsh) && \
     apt-get clean
