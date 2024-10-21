@@ -11,9 +11,11 @@
   "dockerFile": "Dockerfile",
   "remoteUser": "root",
   "features": {},
+
   "postCreateCommand": {},
   "postStartCommand": "echo 'Welcome to the LaTeX DevContainer!'",
   "updateContentCommand": "tlmgr update --self --all",
+
   "customizations": {
     // --- Microsoft Visual Studio Code ---
     "vscode": {
@@ -24,7 +26,71 @@
           "zsh": {
             "path": "/bin/zsh"
           }
-        }
+        },
+        "editor.wordWrap": "on",
+        "editor.tabSize": 4,
+        // LaTeX Workshop Settings: Build
+        "latex-workshop.latex.recipes": [
+          {
+            "name": "latexmk",
+            "tools": [
+              "latexmk"
+            ]
+          }
+        ],
+        // LaTeX Workshop Settings: Viewer
+        "latex-workshop.latex.autoClean.run": "onBuilt",
+        "latex-workshop.view.pdf.viewer": "tab",
+        "latex-workshop.latex.clean.subfolder.enabled": true,
+        "latex-workshop.message.update.show": true,
+        // LaTeX Workshop Settings: Viewer (Dark Mode)
+        "latex-workshop.view.pdf.color.dark.pageColorsBackground": "#171717",
+        "latex-workshop.view.pdf.color.dark.pageColorsForeground": "#FFFFFF",
+        "latex-workshop.view.pdf.color.dark.backgroundColor": "#171717"
+      },
+      "extensions": [
+        // LaTeX Workshop
+        "james-yu.latex-workshop",
+        // LaTeX Utilities
+        "tecosaur.latex-utilities",
+        // Dev Containers
+        "ms-vscode-remote.remote-containers",
+        // GitHub Codespaces
+        "github.codespaces",
+        // JetBrains IDE Keymap
+        "isudox.vscode-jetbrains-keybindings",
+        // GitLens
+        "eamodio.gitlens",
+        // GitHub Copilot
+        "github.copilot",
+        // GitHub Copilot Chat
+        "github.copilot-chat",
+        // Live Share
+        "ms-vsliveshare.vsliveshare",
+        // Markdown All in One
+        "yzhang.markdown-all-in-one",
+        // Markdown PDF
+        "yzane.markdown-pdf",
+        // PlantUML
+        "jebbs.plantuml",
+        // Grammarly
+        "znck.grammarly"
+      ]
+    },
+    // --- JetBrains IDEs ---
+    "jetbrains": {
+      "settings": {
+        "com.intellij:app:BaseRefactoringSettings.safe_delete_search_in_comments": true,
+        "com.intellij:app:EditorSettings.soft_wrap_file_masks": "*.md; *.txt; *.tex",
+        "com.intellij:app:GeneralSettings.autoSaveFiles": true,
+        "com.intellij:app:GeneralSettings.autoSaveIfInactive": true,
+        "com.intellij:app:GeneralSettings.inactiveTimeout": 30,
+        "com.intellij:app:ProjectViewSharedSettings.foldersAlwaysOnTop": true,
+        "com.intellij:app:ProjectViewSharedSettings.showExcludedFiles": true,
+        "com.intellij:app:UsageViewSettings.group_by_directory_structure": true,
+        "com.intellij:app:VcsApplicationSettings.commit_from_local_changes": true,
+        "com.intellij:app:VcsApplicationSettings.mark_excluded_as_ignored": true,
+        // more settings are available, official documentation is not yet available
       }
     }
   }
