@@ -35,18 +35,19 @@
             "name": "latexmk",
             "tools": [
               "latexmk"
-            ]
+            ],
           }
         ],
+        "latex-workshop.latex.outDir": "./out",
         // LaTeX Workshop Settings: Viewer
-        "latex-workshop.latex.autoClean.run": "onBuilt",
+        // "latex-workshop.latex.autoClean.run": "onBuilt",                       // enable for auto clean, slower build
         "latex-workshop.view.pdf.viewer": "tab",
         "latex-workshop.latex.clean.subfolder.enabled": true,
         "latex-workshop.message.update.show": true,
         // LaTeX Workshop Settings: Viewer (Dark Mode)
-        "latex-workshop.view.pdf.color.dark.pageColorsBackground": "#171717",
-        "latex-workshop.view.pdf.color.dark.pageColorsForeground": "#FFFFFF",
-        "latex-workshop.view.pdf.color.dark.backgroundColor": "#171717"
+        // "latex-workshop.view.pdf.color.dark.pageColorsBackground": "#171717",  // enable for dark mode
+        // "latex-workshop.view.pdf.color.dark.pageColorsForeground": "#FFFFFF",  // enable for dark mode
+        // "latex-workshop.view.pdf.color.dark.backgroundColor": "#171717"        // enable for dark mode
       },
       "extensions": [
         // LaTeX Workshop
