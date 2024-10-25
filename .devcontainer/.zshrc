@@ -1,15 +1,14 @@
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
+# Configure Zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
+# Configure Starship
 export STARSHIP_CONFIG=~/.config/starship.toml
-
 eval "$(starship init zsh)"
 
+# Install and load plugins
 zi light-mode wait lucid depth=1 for \
 	atinit"zicompinit; zicdreplay" \
     OMZP::git \
