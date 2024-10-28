@@ -41,7 +41,7 @@ COPY resources/.zshrc /root/.zshrc
 COPY resources/starship.toml /root/.config/starship.toml
 
 # Starship prompt installation
-RUN curl -sS https://starship.rs/install.sh | sh -s -- -y
+RUN curl -sS https://starship.rs/install.sh | sh -s -- -y -v latest
 
 # Zinit installation
 RUN curl -sS https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh | sh
