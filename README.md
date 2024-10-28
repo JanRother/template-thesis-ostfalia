@@ -70,9 +70,9 @@ The template only provides a basic structure and formatting for the thesis. It d
 
 The following tools form one possible way to compile the LaTeX document and are tested to work on Microsoft Windows 10 and higher.
 
-- **LaTeX Distribution**: [MiKTeX](https://miktex.org/)
+- **LaTeX Distribution**: [MiKTeX](https://miktex.org/) or `winget install --id=MiKTeX.MiKTeX  -e`
 - **Perl Distribution**: [Strawberry Perl](http://strawberryperl.com/) or `winget install -e --id StrawberryPerl.StrawberryPerl`
-- **Python Distribution**: [Python](https://www.python.org/)
+- **Python Distribution**: [Python](https://www.python.org/) or `winget install -e --id Python.Python.3.10`
 - **Editor**: [Microsoft Visual Studio Code](https://code.visualstudio.com/)
   - **LaTeX Language Support**: [LaTeX](https://marketplace.visualstudio.com/items?itemName=mathematic.vscode-latex)
   - **LaTeX Workshop**: [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
