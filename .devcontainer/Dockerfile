@@ -37,8 +37,8 @@ RUN apt-get update && \
     apt-get clean
 
 # |----------------------- Terminal -----------------------|
-COPY .zshrc /root/.zshrc
-COPY starship.toml /root/.config/starship.toml
+COPY resources/.zshrc /root/.zshrc
+COPY resources/starship.toml /root/.config/starship.toml
 
 # Starship prompt installation
 RUN curl -sS https://starship.rs/install.sh | sh -s -- -y

@@ -217,6 +217,9 @@ Procfile          text
 # Like .babelrc, .eslintrc, .eslintrc.js, .eslintrc.json, .eslintrc.yml, ...
 *.*rc             text
 
+# |--------------- Dev Container Resources ---------------|
+.devcontainer/resources/*           text eol=lf
+
 # |------------------------ Ignore -----------------------|
 # Like .gitignore, .dockerignore, .npmignore, ...
 *.*ignore         text
