@@ -31,11 +31,23 @@ RUN apt-get update &&  \
 RUN tlmgr update --self --all
 
 # |--------------------- Customization --------------------|
-RUN apt-get install -y zsh && \
+RUN apt-get install -y zsh fzf && \
     chsh -s $(which zsh) && \
     apt-get clean
 
+# |----------------------- Terminal -----------------------|
+COPY .zshrc /root/.zshrc
+COPY starship.toml /root/.config/starship.toml
+
+# Starship prompt installation
+RUN curl -sS https://starship.rs/install.sh | sh -s -- -y
+
+# Zinit installation
+RUN curl -sS https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh | sh
+# Install Zinit plugins
+RUN zsh -il
+
 # |----------------------- Finalize -----------------------|
 WORKDIR /workspace
-
+ENTRYPOINT [ "/bin/zsh" ]
 ############################################################
