@@ -34,11 +34,17 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Extract Metadata (tags, labels) for Docker
+      - name: Extract Metadata (images, tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: janrother/environments
+          images: janrother/latex-environment
+          tags: |
+                type=raw,value=latest,enable={{is_default_branch}}
+          labels: |
+                  org.opencontainers.image.author="Jan Rother"
+                  org.opencontainers.image.title="LaTeX Environment"
+                  org.opencontainers.image.description="Image for a LaTeX environment with Unix surrounded by a common toolchain."
 
       - name: Build and push Docker Image
         id: push
@@ -49,10 +55,3 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
-      - name: Generate Artifact Attestation
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
-          subject-digest: ${{ steps.push.outputs.digest }}
-          push-to-registry: true
