@@ -119,6 +119,7 @@ TEMPLATE-THESIS-OSTFALIA
 │       .zshrc
 │       devcontainer.json
 │       Dockerfile
+│       starship.toml
 │
 ├───.idea
 │       ...
@@ -324,6 +325,8 @@ The *DevContainer* can be adjusted to every need. The `Dockerfile` defines the b
 It is recommended to leave the `Dockerfile` as-is. It uses the `texlive/texlive` image from [hub.docker.com](https://hub.docker.com/r/texlive/texlive) as base image and configures it for the *LaTeX* environment. In its current state, the `latest` tag is used, to ensure that everything is up to date. This and other specifiers can easily be modified using `ARG` variables.
 
 If changes to the development environment are necessary, the `devcontainer.json` file can be adjusted. It uses the image created by the `Dockerfile` and defines the settings for the development container. Besides its behavior, precise settings for the editor `vscode` or the IDEs `jetbrains` can be defined. The `extensions` array can be used to install additional extensions in the development container.
+
+The *DevContainer* provides a pre-configured ZSH shell. It can be further customized by adjusting the `.zshrc` file. The `starship.toml` file can be used to configure the prompt of the shell.
 
 ### Compatibility
 
