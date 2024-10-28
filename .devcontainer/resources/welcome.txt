@@ -1,0 +1,20 @@
+|------------------------------------------------|
+|           LaTeX Development Container          |
+|                    Welcome!                    |
+|                                                |
+| Jan Rother                                     |
+| https://github.com/JanRother/                  |
+|------------------------------------------------|
+
+ Welcome to the LaTeX development container! This
+ container is based on an official TeX Live image
+ and includes a full LaTeX distribution with all
+ necessary tools for building LaTeX documents.
+
+ - Compiling the Document ............. latexmk
+ - Deleting Build Files ............... latexmk -c
+ - Cleaning up the Workspace .......... cleanup.sh
+
+ Available Tools: git, tlmgr, latexmk, python, ...
+
+ The workspace is ready!

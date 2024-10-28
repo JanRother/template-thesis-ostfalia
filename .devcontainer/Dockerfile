@@ -35,6 +35,7 @@ RUN apt-get update && \
     apt-get install -y zsh fzf && \
     chsh -s $(which zsh) && \
     apt-get clean
+COPY resources/welcome.txt /root/welcome.txt
 
 # |----------------------- Terminal -----------------------|
 COPY resources/.zshrc /root/.zshrc

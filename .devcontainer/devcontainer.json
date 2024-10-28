@@ -13,7 +13,7 @@
   "features": {},
 
   "postCreateCommand": {},
-  "postStartCommand": "echo 'Welcome to the LaTeX DevContainer!'",
+  "postStartCommand": "cat /root/welcome.txt",
   "updateContentCommand": "tlmgr update --self --all",
 
   "customizations": {
