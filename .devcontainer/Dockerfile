@@ -32,7 +32,7 @@ RUN tlmgr update --self --all
 
 # |--------------------- Customization --------------------|
 RUN apt-get update && \
-    apt-get install -y zsh fzf && \
+    apt-get install -y zsh fzf git-lfs && \
     chsh -s $(which zsh) && \
     apt-get clean
 COPY resources/welcome.txt /root/welcome.txt
