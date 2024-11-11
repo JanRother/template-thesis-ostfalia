@@ -15,6 +15,9 @@
  - Deleting Build Files ............... latexmk -c
  - Cleaning up the Workspace .......... cleanup.sh
 
- Available Tools: git, tlmgr, latexmk, python, ...
+Get your binaries ready with Git LFS by executing:
+    git lfs fetch --all
+    git lfs pull
 
+ Available Tools: git, tlmgr, latexmk, python, ...
  The workspace is ready!

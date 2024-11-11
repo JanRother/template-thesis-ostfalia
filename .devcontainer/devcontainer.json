@@ -3,8 +3,8 @@
 ////////////////////////////////////////////////////////////
 
 ////////// AUTHOR:  Jan Rother
-////////// DATE:    2024-09
-////////// VERSION: 1.0
+////////// DATE:    2024-11
+////////// VERSION: 1.1
 
 {
   "name": "LaTeX",
@@ -12,9 +12,9 @@
   "remoteUser": "root",
   "features": {},
 
-  "postCreateCommand": {},
-  "postStartCommand": "cat /root/welcome.txt",
   "updateContentCommand": "tlmgr update --self --all",
+  "postCreateCommand": "git lfs fetch --all && git lfs pull",
+  "postStartCommand": "cat /root/welcome.txt",
 
   "customizations": {
     // --- Microsoft Visual Studio Code ---
