@@ -36,6 +36,7 @@
     * [DevContainer](#devcontainer)
     * [Getting Started locally](#getting-started-locally)
       * [Prerequisites](#prerequisites)
+      * [Getting the Docker Image](#getting-the-docker-image)
       * [Starting the Development Container](#starting-the-development-container)
     * [Getting Started in the Cloud](#getting-started-in-the-cloud)
       * [Prerequisites](#prerequisites-1)
@@ -306,6 +307,28 @@ To use the *DevContainer* feature, the following software has to be installed on
 - An **Editor or IDE** as described in the [DevContainer](#devcontainer) section for accessing the development container is required:
   - **Visual Studio Code** can be downloaded at [code.visualstudio.com](https://code.visualstudio.com/download) or directly installed via `winget install -e --id Microsoft.VisualStudioCode`.
   - **JetBrains IntelliJ** is recommended to be installed using the [JetBrains Toolbox](https://www.jetbrains.com/toolbox-app/download/).
+
+#### Getting the Docker Image
+
+A Docker Image is up-to-date and available at Docker Hub under [janrother/latex-environment](https://hub.docker.com/repository/docker/janrother/latex-environment). It can be used to start a development environment right away or to include it as base image in a custom Dockerfile. The image is build from the `Dockerfile` located in the `.devcontainer` directory.
+
+To use the Docker Image, run
+
+```shell
+docker pull janrother/latex-environment:latest
+```
+
+or
+
+```shell
+docker run -it janrother/latex-environment:latest
+```
+
+To add the environment as base image in a custom Dockerfile, use
+
+```dockerfile
+FROM janrother/latex-environment:latest as base
+```
 
 #### Starting the Development Container
 
