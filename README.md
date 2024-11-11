@@ -5,10 +5,11 @@
 > Archive  
 >
 > **Template Thesis**  
-> from [github.com/Ostfalia-ComputerScience-Archive](https://github.com/Ostfalia-ComputerScience-Archive/ostfalia-computerscience-templatethesis)
+> from [github.com/Ostfalia-ComputerScience-Archive](https://github.com/Ostfalia-ComputerScience-Archive/ostfalia-computerscience-templatethesis)  
+> from [github.com/janrother/template-thesis-ostfalia](https://github.com/janrother/template-thesis-ostfalia/)  
 > 
 > Jan Rother  
-> jan.rother@ostfalia.de  
+> janrother02@gmail.com  
 
 ## Table of Contents
 
@@ -133,15 +134,19 @@ TEMPLATE-THESIS-OSTFALIA
 │   main.tex
 │   README.md
 │   README.pdf
-│   
-├───.devcontainer
-│       .zshrc
-│       devcontainer.json
-│       Dockerfile
-│       starship.toml
 │
-├───.idea
-│       ...
+├───.devcontainer
+│   │   devcontainer.json
+│   │   Dockerfile
+│   │
+│   └───resources
+│           .zshrc
+│           starship.toml
+│           welcome.txt
+│
+├───.github
+│   └───workflows
+│           docker-image.yml
 │
 ├───chapters
 │   ├───00
@@ -218,6 +223,7 @@ The following files are provided to support the toolchain and the usage of the d
 - The **`LICENSE`** file provides the license of the document and the template.
 - To remove files associated to or created by the compilation, the **`cleanup.bat`** (for *Microsoft Windows*) and **`cleanup.sh`** (for *Unix* based systems) files are provided. Their usage is explained under [Cleaning Up](#cleaning-up).
 - The **`.devcontainer`** directory contains the configuration for the development container, which is used to provide a consistent development environment for the document.
+- The **`.github`** directory contains the configuration for the *GitHub Actions* workflows, including the one which is used to build and push the Docker image for the development container.
 
 ### Configuring the Document
 
@@ -307,6 +313,8 @@ To use the *DevContainer* feature, the following software has to be installed on
 - An **Editor or IDE** as described in the [DevContainer](#devcontainer) section for accessing the development container is required:
   - **Visual Studio Code** can be downloaded at [code.visualstudio.com](https://code.visualstudio.com/download) or directly installed via `winget install -e --id Microsoft.VisualStudioCode`.
   - **JetBrains IntelliJ** is recommended to be installed using the [JetBrains Toolbox](https://www.jetbrains.com/toolbox-app/download/).
+
+As of now, it is recommended to use either *Visual Studio Code* or *GitHub Codespaces* to access the development container. Other IDEs are currently adopting this technology, but still have to catch up. 
 
 #### Getting the Docker Image
 
