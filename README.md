@@ -20,6 +20,7 @@
     * [Demarcation](#demarcation)
     * [Important Notes](#important-notes)
   * [Usage](#usage)
+    * [Repository](#repository)
     * [Toolchain](#toolchain)
     * [Setup](#setup)
     * [Editing the Document](#editing-the-document)
@@ -46,6 +47,10 @@
 
 -----
 
+> **Important:**  
+> This template repository is configured for the use of [Git LFS](https://git-lfs.com/) to store large binary files.  
+> If encountering any VCS related issues, have a look at the [Repository](#repository) section for further assistance.
+
 ## Introduction
 
 ### Overview
@@ -65,6 +70,19 @@ The template only provides a basic structure and formatting for the thesis. It d
 - **The template comes without support.** Students are expected to be able to use LaTeX and the tools required to compile the document. They are also expected to be able to make any necessary adjustments to the template to fit their needs.
 
 ## Usage
+
+### Repository
+
+If you want to use this template, make sure to have Git LFS installed on your system by running `git lfs install`. If you want to use this template without Git LFS, adjust the `.gitattributes` file accordingly.
+
+Due to a `post-checkout` hook configured by Git LFS, security settings might prevent `git clone` or `git checkout` from working properly. Setting `GIT_CLONE_PROTECTION_ACTIVE=false` could prevent this issues. To access contents from Git LFS properly, run
+
+```shell
+git lfs fetch --all && \
+git lfs pull
+```
+
+Further information can be found in the [Git LFS Documentation](https://github.com/git-lfs/git-lfs/tree/main/docs?utm_source=gitlfs_site&utm_medium=docs_link&utm_campaign=gitlfs).
 
 ### Toolchain
 
