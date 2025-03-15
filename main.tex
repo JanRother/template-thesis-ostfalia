@@ -63,11 +63,11 @@
 
 	\mainmatter
 	
-	\input{./chapters/00/introduction-and-motivation}
-	\input{./chapters/01/chapter}
+	\input{./chapters/00/00_introduction-and-motivation}
+	\input{./chapters/01/00_chapter}
 	\input{./chapters/template/template}				% template for new chapters, remove from main
 	\input{./chapters/example/example}					% example chapter, remove from main
-	\input{./chapters/99/ending-and-conclusion}
+	\input{./chapters/99/00_ending-and-conclusion}
 
 	%---------------------------------------------------------------------------
 	% BIBLIOGRAPHY
@@ -86,6 +86,7 @@
 
 	\appendix
 	\pagenumbering{Roman}
-	\input{./chapters/AA/attachment}
+	\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+	\input{./chapters/AA/00_attachment}
 
 \end{document}
