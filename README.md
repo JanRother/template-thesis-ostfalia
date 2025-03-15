@@ -14,37 +14,37 @@
 ## Table of Contents
 
 <!-- TOC -->
-* [Ostfalia Computer Science Archive | Template Thesis](#ostfalia-computer-science-archive--template-thesis)
-  * [Table of Contents](#table-of-contents)
-  * [Introduction](#introduction)
-    * [Overview](#overview)
-    * [Demarcation](#demarcation)
-    * [Important Notes](#important-notes)
-  * [Usage](#usage)
-    * [Repository](#repository)
-    * [Toolchain](#toolchain)
-    * [Setup](#setup)
-    * [Editing the Document](#editing-the-document)
-      * [Structure](#structure)
-      * [Files for the Thesis](#files-for-the-thesis)
-      * [Files for the Toolchain](#files-for-the-toolchain)
-    * [Configuring the Document](#configuring-the-document)
-    * [Writing](#writing)
-    * [Compiling](#compiling)
-    * [Cleaning Up](#cleaning-up)
-    * [Miscellaneous](#miscellaneous)
-  * [Utilizing Development Container](#utilizing-development-container)
-    * [DevContainer](#devcontainer)
-    * [Getting Started locally](#getting-started-locally)
-      * [Prerequisites](#prerequisites)
-      * [Getting the Docker Image](#getting-the-docker-image)
-      * [Starting the Development Container](#starting-the-development-container)
-    * [Getting Started in the Cloud](#getting-started-in-the-cloud)
-      * [Prerequisites](#prerequisites-1)
-      * [Starting a Code Space](#starting-a-code-space)
-    * [Adjust to every Need](#adjust-to-every-need)
-    * [Compatibility](#compatibility)
-  * [Note](#note)
+- [Ostfalia Computer Science Archive | Template Thesis](#ostfalia-computer-science-archive--template-thesis)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+    - [Overview](#overview)
+    - [Demarcation](#demarcation)
+    - [Important Notes](#important-notes)
+  - [Usage](#usage)
+    - [Repository](#repository)
+    - [Toolchain](#toolchain)
+    - [Setup](#setup)
+    - [Editing the Document](#editing-the-document)
+      - [Structure](#structure)
+      - [Files for the Thesis](#files-for-the-thesis)
+      - [Files for the Toolchain](#files-for-the-toolchain)
+    - [Configuring the Document](#configuring-the-document)
+    - [Writing](#writing)
+    - [Compiling](#compiling)
+    - [Cleaning Up](#cleaning-up)
+    - [Miscellaneous](#miscellaneous)
+  - [Utilizing Development Container](#utilizing-development-container)
+    - [DevContainer](#devcontainer)
+    - [Getting Started locally](#getting-started-locally)
+      - [Prerequisites](#prerequisites)
+      - [Getting the Docker Image](#getting-the-docker-image)
+      - [Starting the Development Container](#starting-the-development-container)
+    - [Getting Started in the Cloud](#getting-started-in-the-cloud)
+      - [Prerequisites](#prerequisites-1)
+      - [Starting a Code Space](#starting-a-code-space)
+    - [Adjust to every Need](#adjust-to-every-need)
+    - [Compatibility](#compatibility)
+  - [Note](#note)
 <!-- TOC -->
 
 -----
@@ -147,19 +147,20 @@ TEMPLATE-THESIS-OSTFALIA
 ├───.github
 │   └───workflows
 │           docker-image.yml
+│           document.yml
 │
 ├───chapters
 │   ├───00
-│   │       introduction-and-motivation.tex
+│   │       00_introduction-and-motivation.tex
 │   │
 │   ├───01
-│   │       chapter.tex
+│   │       00_chapter.tex
 │   │
 │   ├───99
-│   │       ending-and-conclusion.tex
+│   │       00_ending-and-conclusion.tex
 │   │
 │   ├───AA
-│   │       attachment.tex
+│   │       00_attachment.tex
 │   │
 │   ├───example
 │   │       example.tex
@@ -223,7 +224,7 @@ The following files are provided to support the toolchain and the usage of the d
 - The **`LICENSE`** file provides the license of the document and the template.
 - To remove files associated to or created by the compilation, the **`cleanup.bat`** (for *Microsoft Windows*) and **`cleanup.sh`** (for *Unix* based systems) files are provided. Their usage is explained under [Cleaning Up](#cleaning-up).
 - The **`.devcontainer`** directory contains the configuration for the development container, which is used to provide a consistent development environment for the document.
-- The **`.github`** directory contains the configuration for the *GitHub Actions* workflows, including the one which is used to build and push the Docker image for the development container.
+- The **`.github`** directory contains the configuration for the *GitHub Actions* workflows, including the one which is used to build and push the Docker image for the development container and the one which is used to compile the document. Note, that the `docker-image.yml` workflow is only used by the template repository to provide the ready-to-use development container image on *Docker Hub*. Therefore, it is recommended to remove this workflow from the repository, as it would most likely fail in a forked repository.
 
 ### Configuring the Document
 
