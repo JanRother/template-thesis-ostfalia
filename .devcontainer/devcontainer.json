@@ -3,8 +3,8 @@
 ////////////////////////////////////////////////////////////
 
 ////////// AUTHOR:  Jan Rother
-////////// DATE:    2024-11
-////////// VERSION: 1.1
+////////// DATE:    2025-03
+////////// VERSION: 1.2
 
 {
   "name": "LaTeX",
@@ -29,6 +29,11 @@
         },
         "editor.wordWrap": "on",
         "editor.tabSize": 4,
+        "editor.quickSuggestions": {
+          "other": "off",                                                         // keep disabled when 'ltex.completionEnabled' is active
+          "comments": "off",
+          "strings": "off"
+        },
         // LaTeX Workshop Settings: Build
         "latex-workshop.latex.recipes": [
           {
@@ -48,6 +53,20 @@
         // "latex-workshop.view.pdf.color.dark.pageColorsBackground": "#171717",  // enable for dark mode
         // "latex-workshop.view.pdf.color.dark.pageColorsForeground": "#FFFFFF",  // enable for dark mode
         // "latex-workshop.view.pdf.color.dark.backgroundColor": "#171717"        // enable for dark mode
+        // LTeX+ Settings
+        "ltex.enabled": [
+          "bibtex",
+          "latex",
+          "markdown",
+          "text"
+        ],
+        "ltex.language": "de-DE",
+        "ltex.additionalRules.motherTongue": "de-DE",
+        "ltex.completionEnabled": true,
+        "ltex.diagnosticSeverity": "hint",
+        "ltex.checkFrequency": "edit",
+        "ltex.clearDiagnosticsWhenClosingFile": true,
+        "ltex.statusBarItem": true
       },
       "extensions": [
         // LaTeX Workshop
@@ -75,7 +94,11 @@
         // PlantUML
         "jebbs.plantuml",
         // Grammarly
-        "znck.grammarly"
+        "znck.grammarly",
+        // LTeX+
+        "ltex-plus.vscode-ltex-plus",
+        // Conventional Commits
+        "vivaxy.vscode-conventional-commits"
       ]
     },
     // --- JetBrains IDEs ---

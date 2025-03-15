@@ -13,7 +13,7 @@ ARG BASE_FLAVOR=src
 FROM ${BASE_IMAGE}:${BASE_RELEASE}-${BASE_SIZE}-${BASE_FLAVOR} AS base
 
 ARG AUTHOR="Jan Rother"
-ARG DATE="2024-10"
+ARG DATE="2025-03"
 ARG VERSION="1.0"
 
 # |----------------------- Meta Data ----------------------|
