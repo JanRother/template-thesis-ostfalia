@@ -12,19 +12,31 @@
 \makeatletter
 
 % configure headers
+\def\maxChapterTitleLength{44}							% define maximum length of chapter title in header
+
 \patchcmd{\@makechapterhead}{\vspace*{50\p@}}{}{}{} 	% removes space above \chapter head
 \patchcmd{\@makeschapterhead}{\vspace*{50\p@}}{}{}{} 	% removes space above \chapter* head
 \makeatother
 \setlength{\headheight}{14.5pt}							% set header height
 \pagestyle{fancy}										% set page style to fancy
-\renewcommand{\chaptermark}[1]{							% set chapter mark
-	\markboth{
-		{\chaptername\ \thechapter\ #1}
-	}{}
+
+\renewcommand{\chaptermark}[1]{
+	\noexpandarg
+	\StrLen{#1}[\chapterTitleLength]
+
+	\ifthenelse{\chapterTitleLength > \maxChapterTitleLength}{
+		\StrLeft{#1}{\maxChapterTitleLength}[\title]
+        \edef\title{\title \ldots}
+	}{
+		\def\title{#1}
+	}
+
+	\markboth{\title\ -- \chaptername\ \thechapter\ }{}	% set chapter mark
 }
+
 \renewcommand{\sectionmark}[1]{							% set section mark
 	\markright{
-		{\projectshortdescription}
+		{\projectShortDescription}
 	}
 }
 
@@ -66,9 +78,9 @@
 % set metadata of document
 \hypersetup{
 	pdfauthor={\firstAuthor},
-	pdftitle={\documentTitle\ | \documentSubtitle},
-	pdfsubject={\documentSubject},
-	pdfkeywords={Betreuer: \tutorAName}
+	pdftitle={\documentTitle\ -- \documentSubtitle},
+	pdfsubject={\documentSubject \documentYear},
+	pdfkeywords={Betreut von \tutorAName und \tutorBName.}
 }
 
 % set code listings

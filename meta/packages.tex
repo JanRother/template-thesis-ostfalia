@@ -16,9 +16,11 @@
 \usepackage[T1]{fontenc}                                            % set font encoding
 \usepackage[nottoc,notlot,notlof]{tocbibind}                        % remove toc, lot and lof from table of contents
 \usepackage[bottom]{footmisc}                                       % set footnotes to bottom of page
+\usepackage{xstring}                                                % make string operations
 \usepackage{setspace}                                               % set line spacing
 \usepackage{parskip}                                                % set paragraph spacing
 \usepackage{graphicx}                                               % include graphics
+\usepackage{wrapfig}												% enable in-text figures
 \usepackage{etoolbox}                                               % patch commands
 \usepackage{fancyhdr}                                               % set header and footer
 \usepackage{titlesec}                                               % set title format
@@ -38,7 +40,23 @@
 \usepackage{xspace}                                                 % set spaces
 \usepackage{caption}                                                % set caption format
 \usepackage{tabulary}                                               % set tables
+\usepackage{longtable}                                              % set tables over multiple pages
 \usepackage[acronym, toc]{glossaries}						   		% set glossaries and acronyms
+
+
+
+% TikZ packages
+% -> documentation: https://texdoc.org/serve/pgf/0
+\usepackage{tikz}													% required for creating graphics
+\usetikzlibrary{trees}												% required for creating trees
+
+% TikZ styles for directory trees
+\tikzstyle{every node}  =   [thick,anchor=west,font=\ttfamily]
+\tikzstyle{root}        =   [draw=black,fill=gray!30,font=\ttfamily\bfseries]
+\tikzstyle{folder}      =   [draw=black,thick,anchor=west]
+\tikzstyle{selected}    =   [draw=black,fill=black,font=\color{white}]
+\tikzstyle{unselected}  =   [draw=black,fill=gray!10]
+\tikzstyle{ignored}     =   [font=\color{gray}]
 
 
 

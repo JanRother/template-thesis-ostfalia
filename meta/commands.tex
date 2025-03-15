@@ -3,13 +3,13 @@
 
 
 % title of the document (derived from document category)
-\newcommand{\documentTitle}{\documentCategory\xspace}
+\newcommand{\documentTitle}{\projectShortDescription}
 
 % subtitle of the document (derived from project title)
-\newcommand{\documentSubtitle}{\projectdescription\xspace}
+\newcommand{\documentSubtitle}{\projectDescription}
 
 % subject of the document (derived from course and semester)
-\newcommand{\documentSubject}{\course (\courseAbbreviation), \\\semester\xspace}
+\newcommand{\documentSubject}{\documentCategory}
 
 % authors of the document (derived from student data, if set to visible)
 \newcommand{\documentAuthor}{
@@ -35,3 +35,8 @@
 
 % easy quotation
 \newcommand{\q}[1]{\glqq#1\grqq}
+\newcommand{\qbf}[1]{\textbf{\glqq#1\grqq}}
+\newcommand{\qit}[1]{\textit{\glqq#1\grqq}}
+
+% circled numbers
+\newcommand{\circled}[1]{\textcircled{\raisebox{-.9pt}{#1}}}
