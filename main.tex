@@ -11,7 +11,7 @@
 % remove ./example/ from the project root and clear references in this file
 % add imports to ./meta/packages.tex, only if necessary
 
-% version from 2024-10
+% version from 2025-03
 
 
 
@@ -19,7 +19,7 @@
 \usepackage[utf8]{inputenc}
 
 \newif\ifdraft
-\drafttrue												% flag: marks document as draft and shows to-do-notes, comment or set to "draftfalse"
+\draftfalse												% flag: marks document as draft and shows to-do-notes, comment or set to "draftfalse"
 
 \input{./meta/packages}									% import packages
 \input{./meta/parameters}								% set meta parameters
@@ -33,6 +33,14 @@
 
 \makeglossaries											% create glossary
 \loadglsentries{./main/glossaries.tex}					% load glossary entries
+
+\DefineBibliographyStrings{ngerman}{					% define bibliography strings for german language:
+    andothers = {\acrshort{etal}}						% - string for \citeauthor of more than three authors
+}
+\setcounter{biburlucpenalty}{9000}						% set url line break penalties for upper case letters in the bibliography
+\setcounter{biburllcpenalty}{9000}						% set url line break penalties for lower case letters in the bibliography
+
+\graphicspath{{images/}}								% set graphics path
 
 \begin{document}
 
@@ -51,11 +59,11 @@
 	\input{./main/affidavit}
 
 	\tableofcontents
-	\listoffigures
-	\listoftables
 
 	\printglossary[type=\acronymtype, title=Abkürzungsverzeichnis, style=listdotted]
 	\printglossary[type=\glsdefaulttype, title=Glossar] % style: see meta/header.tex
+
+	\glsresetall
 
 	%-------------------------------------------------------------------------------
 	% CONTENT
@@ -73,10 +81,21 @@
 	% BIBLIOGRAPHY
 	%---------------------------------------------------------------------------
 
-	\clearpage
+	\clearpage\phantomsection
 	\renewcommand{\bibname}{Literaturverzeichnis}		% set bibliography title, default: Literatur
 	\addcontentsline{toc}{chapter}{Literaturverzeichnis}
 	\printbibliography
+
+	\begingroup
+		\clearpage\phantomsection
+		\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+		\listoffigures
+		%\let\clearpage\relax
+		%\let\cleardoublepage\relax
+		\clearpage\phantomsection
+		\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+		\listoftables
+	\endgroup
 	
 	\clearpage
 
@@ -85,6 +104,7 @@
 	%---------------------------------------------------------------------------
 
 	\appendix
+	\renewcommand{\chaptername}{Anhang}
 	\pagenumbering{Roman}
 	\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 	\input{./chapters/AA/00_attachment}
