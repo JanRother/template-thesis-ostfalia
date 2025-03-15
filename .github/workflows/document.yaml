@@ -1,0 +1,69 @@
+############################################################
+########### Workflow: Document Build and Release ###########
+############################################################
+
+########## AUTHOR: Jan Rother
+########## DATE:   2025-03
+
+name: Build and Release PDF Document from LaTeX
+
+on:
+  push:
+    branches:
+      - main
+      - 'release/**'
+  pull_request:
+    branches:
+      - main
+      - 'release/**'
+
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Date
+        id: date
+        run: echo "::set-output name=DATE::$(date +'%Y-%m-%d')"
+
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Compile LaTeX Document
+        id: compile_document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          docker_image: janrother/latex-environment:latest
+          pre_compile: "tlmgr update --self && tlmgr update --all && git lfs fetch --all && git lfs pull"
+
+      - name: Upload PDF Document
+        id: upload_document
+        uses: actions/upload-artifact@v4
+        with:
+          name: main
+          path: out/main.pdf
+          overwrite: 'true'
+
+      - name: Release PDF Document
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          TAG_NAME: 'thesis_${{ steps.date.outputs.DATE }}'
+          RELEASE_NAME: 'Thesis (${{ steps.date.outputs.DATE }})'
+        with:
+          tag_name: ${{ env.TAG_NAME }}
+          release_name: ${{ env.RELEASE_NAME }}
+          draft: false
+          prerelease: false
+
+      - name: Upload PDF Document to Release
+        id: upload_release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: out/main.pdf
+          asset_name: main.pdf
+          asset_content_type: application/pdf
